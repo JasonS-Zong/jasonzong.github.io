@@ -1,0 +1,525 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Name — Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff;
+            color: #111;
+            font-size: 14px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        header {
+            width: 100%;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: normal;
+            text-decoration: none;
+            color: #111;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        nav a {
+            color: #111;
+            text-decoration: none;
+            font-size: 13px;
+            transition: opacity 0.2s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.45;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            background: white;
+            min-width: 150px;
+            padding-top: 10px;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 5px 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 30px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 110px);
+            font-weight: normal;
+            letter-spacing: -5px;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            padding: 40px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+            background: #eee;
+        }
+
+        .project img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .project:hover img {
+            transform: scale(1.03);
+        }
+
+        .project-info {
+            padding: 15px 0 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .project-title {
+            font-size: 14px;
+        }
+
+        .project-category {
+            font-size: 12px;
+            opacity: 0.55;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            padding: 180px 40px;
+            max-width: 900px;
+        }
+
+        .about h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-size: clamp(25px, 4vw, 50px);
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            padding: 100px 40px 50px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .contact h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .contact a {
+            color: #111;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 30px 40px;
+            font-size: 11px;
+            opacity: 0.5;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero {
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .projects {
+                padding: 20px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project img {
+                height: 400px;
+            }
+
+            .about {
+                padding: 100px 20px;
+            }
+
+            .contact {
+                padding: 70px 20px 30px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 50px;
+            }
+
+            footer {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <a href="#" class="logo">
+            YOUR NAME
+        </a>
+
+        <nav>
+
+            <a href="#home">home</a>
+
+            <a href="#projects">projects</a>
+
+            <div class="dropdown">
+                <a href="#work">work</a>
+
+                <div class="dropdown-content">
+                    <a href="#character">character design</a>
+                    <a href="#background">bg paint</a>
+                    <a href="#film">film</a>
+                    <a href="#illustration">illustration</a>
+                </div>
+            </div>
+
+            <a href="#about">about</a>
+
+            <a href="#contact">contact</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div>
+                <h1>
+                    YOUR NAME
+                </h1>
+
+                <p>
+                    animator / illustrator / artist
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================= -->
+
+        <section class="projects" id="projects">
+
+            <div class="section-title">
+                Projects
+            </div>
+
+
+            <div class="project-grid">
+
+
+                <!-- PROJECT 1 -->
+
+                <article class="project">
+
+                    <img
+                        src="images/project1.jpg"
+                        alt="Project One"
+                    >
+
+                    <div class="project-info">
+
+                        <span class="project-title">
+                            Project One
+                        </span>
+
+                        <span class="project-category">
+                            Animation
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 2 -->
+
+                <article class="project">
+
+                    <img
+                        src="images/project2.jpg"
+                        alt="Project Two"
+                    >
+
+                    <div class="project-info">
+
+                        <span class="project-title">
+                            Project Two
+                        </span>
+
+                        <span class="project-category">
+                            Character Design
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 3 -->
+
+                <article class="project">
+
+                    <img
+                        src="images/project3.jpg"
+                        alt="Project Three"
+                    >
+
+                    <div class="project-info">
+
+                        <span class="project-title">
+                            Project Three
+                        </span>
+
+                        <span class="project-category">
+                            Background Paint
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 4 -->
+
+                <article class="project">
+
+                    <img
+                        src="images/project4.jpg"
+                        alt="Project Four"
+                    >
+
+                    <div class="project-info">
+
+                        <span class="project-title">
+                            Project Four
+                        </span>
+
+                        <span class="project-category">
+                            Illustration
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================= -->
+
+        <section class="about" id="about">
+
+            <h2>
+                About
+            </h2>
+
+            <p>
+                I'm an animation student and artist interested in
+                character design, visual development, illustration,
+                and storytelling.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================= -->
+
+        <section class="contact" id="contact">
+
+            <div>
+
+                <h2>
+                    Contact
+                </h2>
+
+                <a href="mailto:youremail@email.com">
+                    youremail@email.com
+                </a>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+            </div>
+
+            <div>
+
+                <a href="resume.pdf">
+                    Resume ↗
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        © 2026 Your Name
+
+    </footer>
+
+
+</body>
+</html>
+```
